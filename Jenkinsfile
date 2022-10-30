@@ -29,11 +29,13 @@ pipeline {
 		stage('Deploy') {
             agent {
                 docker {
-                    image 'cdrx/pyinstaller-linux:python2'
+					image 'qnib/pytest'
+                    
                 }
             }
             steps {
-                sh 'sleep 1'
+                sh 'pyinstaller --onefile sources/add2vals.py'
+				sh 'sleep 1'
             }
             post {
                 success {
