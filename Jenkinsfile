@@ -34,6 +34,7 @@ pipeline {
                 }
             }
             steps {
+				sh 'docker inspect -f . cdrx/pyinstaller-linux:python2'
 				sh 'pyinstaller --onefile sources/add2vals.py'
 				sh 'sleep 1'
             }
