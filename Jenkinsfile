@@ -34,6 +34,7 @@ pipeline {
                 }
             }
             steps {
+				sh 'apt-get update'
 				sh 'apt-get install python-pip -y'
 				sh 'python -m pip install --user pyinstaller -y'
 				sh 'python -m pyinstaller --onefile sources/add2vals.py'
