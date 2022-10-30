@@ -29,8 +29,7 @@ pipeline {
 		stage('Deploy') {
             agent {
                 docker {
-					image 'qnib/pytest'
-                    
+				    image 'cdrx/pyinstaller-linux:python3'
                 }
             }
             steps {
