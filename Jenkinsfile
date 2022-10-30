@@ -34,8 +34,6 @@ pipeline {
                 }
             }
             steps {
-				sh 'env'
-				sh 'which pyinstaller'
 				sh 'pyinstaller --onefile sources/add2vals.py'
 				sh 'sleep 1'
             }
