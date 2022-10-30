@@ -39,9 +39,8 @@ pipeline {
                 }
             }
             steps {
-				sh 'find / -name pyinstaller'
 				sh '/root/.pyenv/versions/2.7.17/bin/pyinstaller --onefile sources/add2vals.py'
-				sh 'sleep 1'
+				sh 'sleep 60'
             }
             post {
                 success {
