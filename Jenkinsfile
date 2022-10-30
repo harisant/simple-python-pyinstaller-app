@@ -26,22 +26,5 @@ pipeline {
                 }
             }
         }
-		stage('Deploy') {
-            agent {
-                docker {
-                    image 'cdrx/pyinstaller-linux:python2'
-					args "--entrypoint=''"
-                }
-            }
-            steps {
-                sh 'pyinstaller --onefile sources/add2vals.py'
-				sh 'sleep 1'
-            }
-            post {
-                success {
-                    archiveArtifacts 'dist/add2vals'
-                }
-            }
-        }
     }
 }
