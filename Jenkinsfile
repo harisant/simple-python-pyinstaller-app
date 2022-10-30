@@ -30,10 +30,11 @@ pipeline {
             agent {
                 docker {
 					image 'cdrx/pyinstaller-linux'
-					args '--entrypoint=""'
+					args '--entrypoint="" -u root:root'
                 }
             }
             steps {
+				sh 'apt-get install python-pip'
 				sh 'python -m pip install --user pyinstaller'
 				sh 'python -m pyinstaller --onefile sources/add2vals.py'
 				sh 'sleep 1'
