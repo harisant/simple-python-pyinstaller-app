@@ -32,6 +32,14 @@ pipeline {
                     image 'cdrx/pyinstaller-linux:python2'
                 }
             }
+            steps {
+                sh 'sleep 1'
+            }
+            post {
+                success {
+                    archiveArtifacts 'dist/add2vals'
+                }
+            }
         }
     }
 }
