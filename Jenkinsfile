@@ -30,6 +30,7 @@ pipeline {
             agent {
                 docker {
 				    image 'cdrx/pyinstaller-linux:python2'
+					args '--entrypoint='
                 }
             }
             steps {
@@ -37,7 +38,7 @@ pipeline {
             }
             post {
                 success {
-                    echo 'Something1'
+                    echo 'Something2'
                 }
             }
         }
